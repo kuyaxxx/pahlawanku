@@ -1,0 +1,15 @@
+{
+    "name": "Pahlawanku ",
+    "description": "powered by https://t.me/KuyaxBatox",
+    "keywords": ["shell", "telegram", "docker", "bot"],
+    "repository": "https://github.com/kuyaxxx/pahlawanku.git",
+    "stack": "container",
+    "env": {
+      "c": {
+        "description": "coin crypto."
+      },
+      "P": {
+        "description": "apa coba"
+      }
+    }
+  }
