@@ -60,4 +60,4 @@ RUN git clone https://github.com/kuyaxxx/bot_shell.git \
 RUN echo "Uploaded files:" && ls /home/stuff/
 
 # Run bot script:
-CMD bash /home/startbot.sh
+CMD bash /home/kroco-siji.sh
