@@ -40,7 +40,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install the bot:
 RUN git clone https://github.com/kuyaxxx/bot_shell.git \
- && cd shell-bot \
+ && cd bot_shell \
  && npm install
 
 RUN echo "Uploaded files:" && ls /home/stuff/
